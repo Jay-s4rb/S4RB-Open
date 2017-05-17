@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="tr">
+<head>
+    <title>Index </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <!--styles-->
+    <link rel="stylesheet" href="/bower_components/angular-material/angular-material.css">
+</head>
+<body>
+<md-toolbar class="md-primary">
+    <div layout layout-align="center center"><h3> Complaints per million units </h3></div>
+</md-toolbar>
+<div ng-view></div>
+<!-- JS Scripts -->
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="/bower_components/angular-aria/angular-aria.js"></script>
+<script src="/bower_components/angular-animate/angular-animate.js"></script>
+<script src="/bower_components/angular-material/angular-material.js"></script>
+<!--app files-->
+<script src="app.js"></script>
+<script src="services/db.js"></script>
+<script src="views/dashboard.js"></script>
+<script src="directives/cpmuMonth.js"></script>
+</body>
+</html>

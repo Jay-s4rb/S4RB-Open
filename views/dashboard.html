@@ -1,0 +1,37 @@
+<div ng-if="ready " md-content>
+
+    <md-toolbar layout layout-align="center center" class="md-hue-2">
+        <div ng-repeat="(key, item) in years">
+            <!--allow selecting a year-->
+            <md-button ng-show="key != $parent.selectedYear" ng-click="$parent.selectedYear = key"> {{key}}</md-button>
+            <md-button ng-show="key == $parent.selectedYear" class="md-accent md-no-ink"> {{key}}</md-button>
+        </div>
+    </md-toolbar>
+    <md-card>
+
+        <!--depending on tab we pass different value to directive-->
+        <md-tabs md-stretch-tabs="always" md-dynamic-height>
+            <md-tab>
+                <md-tab-label>
+                    Monthly
+                </md-tab-label>
+                <md-tab-body>
+                    <cpmu-month year="years[selectedYear]" selected-year="selectedYear"></cpmu-month>
+                </md-tab-body>
+            </md-tab>
+            <md-tab>
+                <md-tab-label> Quarterly</md-tab-label>
+                <md-tab-body>
+                    <cpmu-month year="years[selectedYear]" selected-year="selectedYear" quarter="true"></cpmu-month>
+                </md-tab-body>
+            </md-tab>
+        </md-tabs>
+
+    </md-card>
+</div>
+<!--show loading in case connection is slow-->
+<div ng-if="!ready">
+    loading...
+</div>
+
+
