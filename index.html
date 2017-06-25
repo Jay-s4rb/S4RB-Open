@@ -12,39 +12,49 @@
 </head>
 <body>
 	<div class="container mt-5">
-		<header>
-			<h3 class="font-weight-bold float-left">Complaints per million units</h1>
-			<div id="period-toggle" class="btn-group float-right" data-toggle="buttons">
-				<label class="btn btn-primary active">
-					<input type="radio" name="options" id="option1" autocomplete="off" checked>Month
-				</label>
-				<label class="btn btn-primary">
-					<input type="radio" name="options" id="option2" autocomplete="off">Quarter
-				</label>
+		<div class="row">
+			<div class="col">
+				<h3 class="font-weight-bold float-left">Complaints per million units</h1>
 			</div>
-		</header>
-
-		<table id="list" class="table table-sm table-bordered table-striped">
-			<thead>
-				<tr>
-					<th>Month</th>
-					<th>CPMU</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>1</td>
-					<td>123</td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td>556546</td>
-				</tr>
-			</tbody>
-		</table>
+			<div class="col">
+				<div id="period-toggle" class="btn-group float-right" data-toggle="buttons">
+					<label class="btn btn-primary active">
+						<input type="radio" name="options" id="option1" autocomplete="off" checked>Month
+					</label>
+					<label class="btn btn-primary">
+						<input type="radio" name="options" id="option2" autocomplete="off">Quarter
+					</label>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col">
+				<section id="list-container">
+					<table class="table table-sm table-bordered table-striped">
+						<thead>
+							<tr>
+								<th>Month</th>
+								<th>CPMU</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td>123</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>556546</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+			</div>
+		</div>
 	</div>
 
-	<script src="/scripts/script.js"></script>
+	<script src="scripts/script.js"></script>
 
 	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
