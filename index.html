@@ -2,16 +2,52 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
 	<title>CPMU Portal</title>
 
+	<link rel="shortcut icon" href="search.png" type="image/png">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 </head>
 <body>
-	
+	<div class="container mt-5">
+		<header>
+			<h3 class="font-weight-bold float-left">Complaints per million units</h1>
+			<div class="btn-group float-right" data-toggle="buttons">
+				<label class="btn btn-primary active">
+					<input type="radio" name="options" id="option1" autocomplete="off" checked>Month
+				</label>
+				<label class="btn btn-primary">
+					<input type="radio" name="options" id="option2" autocomplete="off">Quarter
+				</label>
+			</div>
+		</header>
+
+		<table class="table table-sm table-bordered table-striped">
+			<thead>
+				<tr>
+					<th>Month</th>
+					<th>CPMU</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>123</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>556546</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 
 
 	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+	<script src="/scripts/script.js"></script>
 </body>
 </html>
