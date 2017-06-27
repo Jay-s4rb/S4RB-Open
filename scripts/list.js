@@ -62,28 +62,31 @@ class List {
 		return (untisSold !== 0) ? (complaints / untisSold * MILLION) : 0;
 	}
 
+	_checkAndAddMissingMonths(nextDate, Month, resultData) {
+		// Assume there can't be more than 11 missing reports in a row.
+		// Otherwise will have to compare the year as well.
+		// Comparing by months in case if reports been submited at diffrent time or day.
+		while (nextDate.getUTCMonth() < new Date(Month).getUTCMonth()) {
+			resultData.push( this._prepareRow({
+				// Assuming that quarter is 3 month period starting from January 1st
+				"Quarter": Math.ceil( (nextDate.getUTCMonth() + 1) / 3), 
+				"Month": nextDate,
+				"Complaints": 0,
+				"UnitsSold": 0
+			}) );
+
+			nextDate.setUTCMonth(nextDate.getUTCMonth() + 1); // Rely on Date auto-correction
+		}
+	}
+
 	processData() {
 		// TODO: JSON is valid at this point but must check actual data.
-		
+
 		let resultData = [];
 		let nextDate = new Date(this.jsonData[0].Month);
 
 		for (let row of this.jsonData) {
-			// Assume there can't be more than 11 missing reports in a row.
-			// Otherwise will have to compare the year as well.
-			// Comparing by months in case if reports been submited at diffrent time or day.
-			while (nextDate.getUTCMonth() < new Date(row.Month).getUTCMonth()) {
-				resultData.push( this._prepareRow({
-					// Assuming that quarter is 3 month period starting from January 1st
-					"Quarter": Math.ceil( (nextDate.getUTCMonth() + 1) / 3), 
-					"Month": nextDate,
-					"Complaints": 0,
-					"UnitsSold": 0
-				}) );
-
-				nextDate.setUTCMonth(nextDate.getUTCMonth() + 1); // Rely on Date auto-correction
-			}
-
+			this._checkAndAddMissingMonths(nextDate, row.Month, resultData);
 			resultData.push( this._prepareRow(row) );
 			nextDate.setUTCMonth(nextDate.getUTCMonth() + 1);
 		}
@@ -164,7 +167,7 @@ class List {
 		this._render(template, `<th>Quarter</th><th>CPMU</th>`);
 	}
 
-	// TODO: Switch to Handlebars templates
+	// TODO: Switch to Handlebars and move templates to separate file
 	_render(rowsTemplate, headerRowsTemplate) {
 		let template =`
 			<table class="table table-sm table-bordered table-striped">				
