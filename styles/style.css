@@ -1,3 +1,7 @@
 #period-toggle label {
 	cursor: pointer;
 }
+
+#list-container td {
+	width: 50%;
+}
