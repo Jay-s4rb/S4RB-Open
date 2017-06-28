@@ -13,12 +13,17 @@ class List {
 
 	loadData() {
 		// Hardcoded headers as any change very likely will require code change as well.
-		fetch(this.options.requestUrl, { "method": "GET", "headers": {"Content-Type": "application/json;"} })
+		fetch(this.options.requestUrl, {
+				"method": "GET",
+				"headers": {"Content-Type": "application/json;"}
+			})
 			.then( response => {
 				return response.json();
 			})
 			.then( data => {
 				this.jsonData = data;
+				
+				// TODO: JSON is valid at this point but must check actual data.
 
 				this._convertDateStringToUTC(this.jsonData);
 				this.processData();
@@ -43,6 +48,10 @@ class List {
 		for (let row of data) {
 			row.Month = row.Month + "Z";
 		}
+	}
+
+	sortData(data) {
+		// TODO: records already in correct order but spec doesn't say anything about sort order in db
 	}
 
 	_prepareRow(row) {
@@ -80,8 +89,6 @@ class List {
 	}
 
 	processData() {
-		// TODO: JSON is valid at this point but must check actual data.
-
 		let resultData = [];
 		let nextDate = new Date(this.jsonData[0].Month);
 
@@ -92,10 +99,6 @@ class List {
 		}
 
 		this.processedData = resultData;
-	}
-
-	sortData(data) {
-		// TODO: records already in correct order but spec doesn't say anything about sort order in db
 	}
 
 	// TODO: re-factor this code - Array.reduce() is too messy and unclear.
@@ -135,9 +138,13 @@ class List {
 	}
 
 	renderMonth() {
-		// Might need to round first, depends on requirement
-		const cpmuFormatter = new Intl.NumberFormat("en-GB", {"minimumFractionDigits": 5, "maximumFractionDigits": 10});
-		const monthFormatter = new Intl.DateTimeFormat("en-GB", {day: "2-digit", month: "long", year: "numeric", timeZone: "UTC"});
+		// Might need to round first, depends on requirements
+		const cpmuFormatter = new Intl.NumberFormat("en-GB", { "minimumFractionDigits": 5,
+																"maximumFractionDigits": 10 });
+		const monthFormatter = new Intl.DateTimeFormat("en-GB", { day: "2-digit",
+																	month: "long",
+																	year: "numeric",
+																	timeZone: "UTC" });
 
 		let template = "";
 
@@ -145,23 +152,33 @@ class List {
 			let cpmuFormatted = cpmuFormatter.format(row.cpmu);
 			let monthFormatted = monthFormatter.format(row.month);
 
-			template += `<tr><td>${monthFormatted}</td><td>${cpmuFormatted}</td></tr>`;
+			template += `
+				<tr>
+					<td>${monthFormatted}</td>
+					<td>${cpmuFormatted}</td>
+				</tr>`;
 		}
 
 		this._render(template, `<th>Month</th><th>CPMU</th>`);
 	}
 
 	renderQuarter() {
-		// Might need to round first, depends on requirement
-		const cpmuFormatter = new Intl.NumberFormat("en-GB", {"minimumFractionDigits": 5, "maximumFractionDigits": 10});
-		const yearFormatter = new Intl.DateTimeFormat("en-GB", {year: "numeric", timeZone: "UTC"});
+		// Might need to round first, depends on requirements
+		const cpmuFormatter = new Intl.NumberFormat("en-GB", { "minimumFractionDigits": 5,
+																"maximumFractionDigits": 10 });
+		const yearFormatter = new Intl.DateTimeFormat("en-GB", { year: "numeric",
+																	timeZone: "UTC" });
 		let template = "";
 
 		for (let row of this.quarterData) {
 			let cpmuFormatted = cpmuFormatter.format(row.cpmu);
 			let yearFormatted = yearFormatter.format(row.month);
 
-			template += `<tr><td>${row.quarter} (${yearFormatted})</td><td>${cpmuFormatted}</td></tr>`;
+			template += `
+				<tr>
+					<td>${row.quarter} (${yearFormatted})</td>
+					<td>${cpmuFormatted}</td>
+				</tr>`;
 		}
 
 		this._render(template, `<th>Quarter</th><th>CPMU</th>`);
