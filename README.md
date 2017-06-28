@@ -1,3 +1,10 @@
+# Instruction
+To run applicatioin:
+- start `json-server` as described below with default settings (address must be: `http://localhost:3000`)
+- open `index.html` file in browser (tested in latest Firefox and Chrome)
+
+To run tests no actions required. I didn't setup any project bundler/task-runner, so test files already in index.html. Mocha output is below main page content.
+
 # Interview Questions #
 
 Imagine you have been tasked by the Account Manager to create a basic reporting application that will allow the account manager to view complaints via a online portal.
