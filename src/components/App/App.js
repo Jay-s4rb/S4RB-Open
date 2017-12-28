@@ -8,7 +8,9 @@ const CPMUCalc = require('../../modules/CPMUCalc');
 
 class App extends Component {
   constructor(props) {
-    super(props);
+		super(props);
+
+		this.updateTheDataAndUpdateTableView = this.updateTheDataAndUpdateTableView.bind(this);
 
 		// Set the initial state
 		// Call a method to format the data according the initial value set for the group by
@@ -19,13 +21,11 @@ class App extends Component {
   }
 	// Method called onchange of the groupBy select dropdown
   updateTheDataAndUpdateTableView(event) {
-    if (event !== undefined) {
-			// Set the state according to the new value
-      this.setState({ groupBy: event.target.value });
+		// Set the state according to the new value
+		this.setState({ groupBy: event.target.value });
 
-			// Set the data formatted according to the group by
-      this.setState({ data: this.buildData(this.props.data, this.state.groupBy) });
-    }
+		// Set the data formatted according to the group by
+		this.setState({ data: this.buildData(this.props.data, event.target.value) });
     return true;
   }
 	// Calculate the difference in months between two dates provided
