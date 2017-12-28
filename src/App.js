@@ -19,6 +19,16 @@ class App extends Component {
 		this.state.groupBy = event.target.value;
 		this.state.data = this.buildData(this.props.data, this.state.groupBy);
 	}
+	monthDifference(d1, d2) {
+			d1 = new Date(d1);
+			d2 = new Date(d2);
+
+			var months;
+			months = (d2.getFullYear() - d1.getFullYear()) * 12;
+			months -= d1.getMonth() + 1;
+			months += d2.getMonth();
+			return months <= 0 ? 0 : months;
+	}
 	buildData(data, groupBy) {
 		let tableData = [];
 		if (groupBy === 'month') {
@@ -27,7 +37,20 @@ class App extends Component {
 				return new Date(a.Month).getTime() - new Date(b.Month).getTime();
 			});
 
+			let previousDate;
+
 			data.map((row) => {
+				if (previousDate !== undefined) {
+					const monthDifference = this.monthDifference(previousDate, row.Month);
+
+					if (monthDifference >= 1) {
+						for(let i = 1; i <= monthDifference; i++) {
+							tableData.push({"Month": <Moment format="D MMMM YYYY" add={{ months: i }}>{previousDate}</Moment>, "CPMU": 0});
+						}
+					}
+				}
+				previousDate = row.Month;
+
 				tableData.push({"Month": <Moment format="D MMMM YYYY">{row.Month}</Moment>, "CPMU": CPMUCalc.calculate(row.Complaints, row.UnitsSold)});
 			});
 		} else if (groupBy === 'quarter') {
@@ -57,7 +80,6 @@ class App extends Component {
 		return tableData;
 	}
   render() {
-		console.log(this.state.data);
     return (
       <div className="App">
         <header className="App-header">
