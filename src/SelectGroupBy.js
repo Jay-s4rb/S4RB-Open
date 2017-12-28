@@ -14,7 +14,7 @@ class SelectGroupBy extends Component {
 	}
   render() {
     return (
-      <select onChange={this.props.onChange}>
+      <select onChange={this.props.onChange} value={this.props.default}>
 				{
 					this.state.options.map((option) => {
 						return (<option key={option.id} value={option.id}>{option.text}</option>);

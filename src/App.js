@@ -16,8 +16,8 @@ class App extends Component {
 		};
 	}
 	updateTheDataAndUpdateTableView( event ) {
-		this.setState({groupBy: event.target.value});
-		this.setState({data: this.buildData(this.props.data, this.state.groupBy)});
+		this.state.groupBy = event.target.value;
+		this.state.data = this.buildData(this.props.data, this.state.groupBy);
 	}
 	buildData(data, groupBy) {
 		let tableData = [];
@@ -32,7 +32,19 @@ class App extends Component {
 				tableData.push({"Month": <Moment format="D MMMM YYYY">{row.Month}</Moment>, "CPMU": CPMUCalc.calculate(row.Complaints, row.UnitsSold)});
 			});
 		} else if (groupBy === 'quarter') {
+			data = data.sort((a, b) => {
+				return new Date(a.Month).getTime() - new Date(b.Month).getTime();
+			});
 
+			const sortedData = data.reduce(function(r, a){
+				r[a.Quarter] = r[a.Quarter] || [];
+				r[a.Quarter].push(a);
+			}, Object.create(null));
+
+			sortedData.map((row) => {
+				console.log(row);
+				tableData.push({"Quarter": row.Quarter, "CPMU": CPMUCalc.calculate(row.Complaints, row.UnitsSold)});
+			});
 		}
 
 		return tableData;
@@ -43,7 +55,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">Complaints Per Million Units</h1>
-					<SelectGroupBy default={this.state.groupBy} onChange={this.updateTheDataAndUpdateTableView}/>
+					<SelectGroupBy default={this.state.groupBy} onChange={this.updateTheDataAndUpdateTableView.bind(this)}/>
         </header>
         <JsonTable data={ this.state.data } />
       </div>
