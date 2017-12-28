@@ -15,8 +15,13 @@ class App extends Component {
 			data: this.buildData(this.props.data, this.props.groupBy),
 		};
 	}
+	updateTheDataAndUpdateTableView( event ) {
+		this.setState({groupBy: event.target.value});
+		this.setState({data: this.buildData(this.props.data, this.state.groupBy)});
+	}
 	buildData(data, groupBy) {
 		let tableData = [];
+		console.log(data);
 		if (groupBy === 'month') {
 			// Sort the data so it is in order by month
 			data = data.sort((a, b) => {
@@ -38,7 +43,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">Complaints Per Million Units</h1>
-					<SelectGroupBy default={this.state.groupBy}/>
+					<SelectGroupBy default={this.state.groupBy} onChange={this.updateTheDataAndUpdateTableView}/>
         </header>
         <JsonTable data={ this.state.data } />
       </div>

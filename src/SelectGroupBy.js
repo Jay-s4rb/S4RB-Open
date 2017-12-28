@@ -7,14 +7,14 @@ class SelectGroupBy extends Component {
 
 		this.state = {
 			options: [
-				{id: 1, text: 'Group By Month' },
-				{id: 2, text: 'Group By Quarter' },
+				{id: 'month', text: 'Group By Month' },
+				{id: 'quarter', text: 'Group By Quarter' },
 			]
 		};
 	}
   render() {
     return (
-      <select>
+      <select onChange={this.props.onChange}>
 				{
 					this.state.options.map((option) => {
 						return (<option key={option.id} value={option.id}>{option.text}</option>);
