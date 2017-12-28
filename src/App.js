@@ -18,7 +18,6 @@ class App extends Component {
 		let tableData = [];
 		if (groupBy === 'month') {
 			// Sort the data so it is in order by month
-			console.log(data);
 			data = data.sort((a, b) => {
 				return new Date(a.Month).getTime() - new Date(b.Month).getTime();
 			});
@@ -33,6 +32,7 @@ class App extends Component {
 		return tableData;
 	}
   render() {
+		console.log(this.state.data);
     return (
       <div className="App">
         <header className="App-header">
