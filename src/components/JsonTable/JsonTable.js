@@ -13,7 +13,7 @@ class JsonTable extends Component {
 	createCell(row) {
 		let rowData = [];
 		Object.values(row).forEach((elem) => {
-			rowData.push(<td>{elem}</td>)
+			rowData.push(<td key={elem}>{elem}</td>)
 		})
 
 		return rowData;
@@ -22,18 +22,19 @@ class JsonTable extends Component {
 		let table = [];
 
 		let columnHeaders = [];
-		this.state.columns.forEach((elem) => {
-			columnHeaders.push(<th>{elem}</th>);
+		this.state.columns.forEach((elem, index) => {
+			columnHeaders.push(<th key={index}>{elem}</th>);
 		});
 
-		table.push(<thead><tr>{columnHeaders}</tr></thead>);
+		table.push(<thead key="-1"><tr key="-3">{columnHeaders}</tr></thead>);
 
 		let rowData = [];
-		this.state.data.map((row) => {
-			rowData.push(<tr key={row.Month}>{this.createCell(row)}</tr>);
+		this.state.data.map((row, index) => {
+
+			return rowData.push(<tr key={index}>{this.createCell(row)}</tr>);
 		});
 
-		table.push(<tbody>{rowData}</tbody>);
+		table.push(<tbody key="-2">{rowData}</tbody>);
 
 		return table;
 	}

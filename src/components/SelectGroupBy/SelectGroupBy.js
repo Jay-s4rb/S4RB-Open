@@ -4,6 +4,7 @@ class SelectGroupBy extends Component {
 	constructor(props) {
 		super(props);
 
+		// Hardcoded the options for now, this could be fed in from the parent component in the future
 		this.state = {
 			options: [
 				{id: 'month', text: 'Group By Month' },

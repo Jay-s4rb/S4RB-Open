@@ -20,10 +20,10 @@ class App extends Component {
 	// Method called onchange of the groupBy select dropdown
 	updateTheDataAndUpdateTableView( event ) {
 		// Set the state according to the new value
-		this.state.groupBy = event.target.value;
+		this.setState({groupBy: event.target.value });
 
 		// Set the data formatted according to the group by
-		this.state.data = this.buildData(this.props.data, this.state.groupBy);
+		this.setState({data: this.buildData(this.props.data, this.state.groupBy)});
 	}
 	// Calculate the difference in months between two dates provided
 	monthDifference(d1, d2) {
@@ -68,7 +68,7 @@ class App extends Component {
 				}
 				previousDate = row.Month;
 
-				tableData.push({"Month": <Moment format="D MMMM YYYY">{row.Month}</Moment>, "CPMU": CPMUCalc.calculate(row.Complaints, row.UnitsSold)});
+				return tableData.push({"Month": <Moment format="D MMMM YYYY">{row.Month}</Moment>, "CPMU": CPMUCalc.calculate(row.Complaints, row.UnitsSold)});
 			});
 		} else if (groupBy === 'quarter') {
 
