@@ -4,7 +4,6 @@
 
 .App-header {
   background-color: #222;
-  height: 50px;
   padding: 20px;
   color: white;
 }
@@ -15,4 +14,11 @@
 
 .App-intro {
   font-size: large;
+}
+
+footer {
+	font-size: 13px;
+	color: grey;
+	text-align: center;
+	margin: 10px 5px;
 }

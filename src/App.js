@@ -21,7 +21,6 @@ class App extends Component {
 	}
 	buildData(data, groupBy) {
 		let tableData = [];
-		console.log(data);
 		if (groupBy === 'month') {
 			// Sort the data so it is in order by month
 			data = data.sort((a, b) => {
@@ -39,11 +38,19 @@ class App extends Component {
 			const sortedData = data.reduce(function(r, a){
 				r[a.Quarter] = r[a.Quarter] || [];
 				r[a.Quarter].push(a);
+				return r;
 			}, Object.create(null));
 
-			sortedData.map((row) => {
-				console.log(row);
-				tableData.push({"Quarter": row.Quarter, "CPMU": CPMUCalc.calculate(row.Complaints, row.UnitsSold)});
+			Object.keys(sortedData).forEach((quarter) => {
+				let complaints = 0;
+				let unitsSold = 0;
+
+				sortedData[quarter].forEach((row) => {
+					complaints += row.Complaints;
+					unitsSold += row.UnitsSold;
+				});
+
+				tableData.push({"Quarter": quarter, "CPMU": CPMUCalc.calculate(complaints, unitsSold)});
 			});
 		}
 
