@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import JsonTable from './JsonTable';
 import SelectGroupBy from './SelectGroupBy';
+import Moment from 'react-moment';
 
 const CPMUCalc = require('./CPMUCalc');
 
@@ -23,7 +24,7 @@ class App extends Component {
 			});
 
 			data.map((row) => {
-				tableData.push({"Month": row.Month, "CPMU": CPMUCalc.calculate(row.Complaints, row.UnitsSold)});
+				tableData.push({"Month": <Moment format="D MMMM YYYY">{row.Month}</Moment>, "CPMU": CPMUCalc.calculate(row.Complaints, row.UnitsSold)});
 			});
 		} else if (groupBy === 'quarter') {
 
