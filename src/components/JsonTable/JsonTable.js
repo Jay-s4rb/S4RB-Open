@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './JsonTable.css';
-
-const TableRender = require('../../modules/TableRender');
+import TableRender from '../../modules/TableRender';
 
 class JsonTable extends Component {
   createTable() {

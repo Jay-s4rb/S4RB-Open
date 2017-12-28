@@ -1,13 +1,12 @@
 import React from 'react';
 import Moment from 'react-moment';
-import 'moment';
+
+const moment = require('moment');
 
 const CPMUCalc = require('./CPMUCalc');
 
 // Sort the data so it is in order by month
-const sortDataByTime = (data) => {
-  data.sort((a, b) => new Date(a.Month).getTime() - new Date(b.Month).getTime());
-};
+const sortDataByTime = data => data.sort((a, b) => new Date(a.Month).getTime() - new Date(b.Month).getTime());
 
 // Formats the data into the json for the table to consume
 // It formats it differently depending on what group by clause is chosen
@@ -55,7 +54,7 @@ const quarterViewRender = (data) => {
   // It will look something like this
   /**
      * {
-     * 	1: {[], [], []}
+     *  1: {[], [], []}
      *  2: {[], [], []}
      * }
      */
@@ -85,7 +84,7 @@ const quarterViewRender = (data) => {
   return tableData;
 };
 
-module.exports = {
+const TableRender = {
   render: (data, groupBy) => {
     let tableData;
 
@@ -106,3 +105,5 @@ module.exports = {
     return rowData;
   },
 };
+
+export default TableRender;

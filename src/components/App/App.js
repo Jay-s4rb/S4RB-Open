@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import JsonTable from '../JsonTable/JsonTable';
 import SelectGroupBy from '../SelectGroupBy/SelectGroupBy';
+import TableRender from '../../modules/TableRender';
 
 class App extends Component {
   constructor(props) {
@@ -13,7 +14,7 @@ class App extends Component {
     // Call a method to format the data according the initial value set for the group by
     this.state = {
       groupBy: this.props.groupBy,
-      data: this.buildData(this.props.data, this.props.groupBy),
+      data: TableRender.render(this.props.data, this.props.groupBy),
     };
   }
   // Method called onchange of the groupBy select dropdown
@@ -22,7 +23,7 @@ class App extends Component {
     this.setState({ groupBy: event.target.value });
 
     // Set the data formatted according to the group by
-    this.setState({ data: this.buildData(this.props.data, event.target.value) });
+    this.setState({ data: TableRender.render(this.props.data, event.target.value) });
     return true;
   }
   render() {
