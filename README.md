@@ -3,12 +3,10 @@
 Imagine you have been tasked by the Account Manager to create a basic reporting application that will allow the account manager to view complaints via a online portal.
 The company already has an internal json rest api that stores all the complaints that the business has recieved and the number of corresponding sales in that period.
 
-The internal json rest api can be hosted locally using the following commands:
+The server can be hosted locally using the following commands:
 
 ```shell
-$ npm install -g json-server
-
-$ json-server --watch db.json
+$ npm start
 ```
 
 ## 1. Develop a basic reporting portal using any frameworks you see fit for purpose.
@@ -20,7 +18,7 @@ $ json-server --watch db.json
 For example:
 
 |Month       | CPMU|
-|---------- | ----------| 
+|---------- | ----------|
 |01 January 2012|	5.47388874|
 |01 February 2012|	57.65682657|
 |01 March 2012|	12.12591551|
