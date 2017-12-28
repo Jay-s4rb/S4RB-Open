@@ -3,6 +3,8 @@ import './App.css';
 import JsonTable from './JsonTable';
 import SelectGroupBy from './SelectGroupBy';
 
+const CPMUCalc = require('./CPMUCalc');
+
 class App extends Component {
 	constructor(props) {
 		super(props);
@@ -13,9 +15,22 @@ class App extends Component {
 		};
 	}
 	buildData(data, groupBy) {
+		let tableData = [];
 		if (groupBy === 'month') {
-			data.map(() => {});
+			// Sort the data so it is in order by month
+			console.log(data);
+			data = data.sort((a, b) => {
+				return new Date(a.Month).getTime() - new Date(b.Month).getTime();
+			});
+
+			data.map((row) => {
+				tableData.push({"Month": row.Month, "CPMU": CPMUCalc.calculate(row.Complaints, row.UnitsSold)});
+			});
+		} else if (groupBy === 'quarter') {
+
 		}
+
+		return tableData;
 	}
   render() {
     return (
