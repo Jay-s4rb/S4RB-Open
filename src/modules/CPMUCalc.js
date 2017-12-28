@@ -1,5 +1,3 @@
 module.exports = {
-	calculate: (complaints, unitsSold) => {
-		return Number(complaints / unitsSold).toExponential();
-	}
+  calculate: (complaints, unitsSold) => Number(complaints / unitsSold).toExponential(),
 };
