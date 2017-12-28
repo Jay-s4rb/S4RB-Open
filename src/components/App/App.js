@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
-import JsonTable from './JsonTable';
-import SelectGroupBy from './SelectGroupBy';
+import JsonTable from '../JsonTable/JsonTable';
+import SelectGroupBy from '../SelectGroupBy/SelectGroupBy';
 import Moment from 'react-moment';
 
-const CPMUCalc = require('./CPMUCalc');
+const CPMUCalc = require('../../modules/CPMUCalc');
 
 class App extends Component {
 	constructor(props) {
