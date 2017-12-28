@@ -1,0 +1,17 @@
+tbody tr:nth-child(odd) {
+	background-color: #ccc;
+}
+
+table {
+	border: 1px solid black;
+	margin: 30px auto;
+}
+
+th, td {
+	padding: 10px;
+}
+
+thead {
+	background-color: #222;
+	color: #FFF;
+}
