@@ -16,8 +16,6 @@ class App extends Component {
       groupBy: this.props.groupBy,
       data: this.buildData(this.props.data, this.props.groupBy),
     };
-
-    this.updateTheDataAndUpdateTableView = this.updateTheDataAndUpdateTableView.bind(this);
   }
 	// Method called onchange of the groupBy select dropdown
   updateTheDataAndUpdateTableView(event) {
