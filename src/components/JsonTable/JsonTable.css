@@ -10,3 +10,8 @@ table {
 th, td {
 	padding: 10px;
 }
+
+thead {
+	background-color: #222;
+	color: #FFF;
+}
