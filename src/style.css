@@ -1,0 +1,17 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	border-top: solid #000 50px;
+}
+
+.app__header{
+		text-align: left;
+		margin: 25px 0;
+}
+
+.app__header h1{
+	font-size: 3.25rem;
+}

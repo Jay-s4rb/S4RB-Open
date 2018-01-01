@@ -1,6 +1,9 @@
 import './portal';
+import 'milligram';
 import endpoints from '../../api';
 import { Component } from 'preact';
+import Table from '../cpmu_table/Table';
+
 
 export default
 class Portal extends Component {
@@ -23,24 +26,9 @@ class Portal extends Component {
   }
 
 	render() {
-    const rows = this.state.data.map((obj, i) => {
-      return(
-        <tr>
-          <td>{obj.Month}</td>
-          <td>{obj.Complaints}</td>
-        </tr>
-      );
-    })
-
 		return (
 			<div>
-				<table>
-        <tr>
-          <th>month</th>
-          <th>cpmu</th>
-        </tr>
-          {rows}
-        </table>
+				<Table data={this.state.data} />
 			</div>
 		);
 	}
