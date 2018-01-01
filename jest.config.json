@@ -1,0 +1,9 @@
+{
+  "testPathIgnorePatterns": [
+    "/node_modules/",
+    "/.cache/"
+  ],
+  "transform": {
+    "^.+\\.test\\.js?$": "babel-jest"
+  }
+}
