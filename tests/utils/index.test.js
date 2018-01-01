@@ -1,7 +1,6 @@
 import {cpmuCalc, formatDate} from '../../src/utils';
 
-describe('Addition', () => {
-  it('knows that 2 and 2 make 4', () => {
-    expect(2 + 2).toBe(4);
-  });
+it('Should format dateString', () => {
+  const date = formatDate("2012-01-01T00:00:00");
+  expect(date).toEqual(expect.stringContaining('01 January, 2012'));
 });

@@ -10,8 +10,12 @@ class Portal extends Component {
   constructor() {
     super();
     this.state = {
-      data: []
+      data: [],
+      period: 'Month'
+
     };
+
+    this.togglePeriod = this.togglePeriod.bind(this);
   }
 
   componentDidMount() {
@@ -25,10 +29,17 @@ class Portal extends Component {
     });
   }
 
-	render() {
+  togglePeriod() {
+    this.setState({
+      period: (this.state.period === 'Month' )? 'Quarter' : 'Month'
+    });
+    //console.log(this.state.period);
+  }
+
+	render(props, state) {
 		return (
 			<div>
-				<Table data={this.state.data} />
+				<Table period={state.period} toggle={this.togglePeriod} data={state.data} />
 			</div>
 		);
 	}

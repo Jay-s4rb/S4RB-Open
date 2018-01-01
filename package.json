@@ -11,9 +11,6 @@
     "lint": "eslint src",
     "test": "jest"
   },
-  "jest": {
-    "verbose": true
-  },
   "eslintConfig": {
     "extends": "eslint-config-synacor"
   },
@@ -21,7 +18,6 @@
     "build/*"
   ],
   "devDependencies": {
-    "babel-preset-preact": "^1.1.0",
     "eslint": "^4.5.0",
     "eslint-config-synacor": "^1.1.0",
     "if-env": "^1.0.0",
