@@ -44,7 +44,7 @@ class Portal extends Component {
     return grp;
   }
 
-  reduceQuartely(i){
+  cpmuQuarterly(i){
     let units = 0, comps = 0;
     i.forEach((item) => {
       units +=  item.UnitsSold;
@@ -56,10 +56,10 @@ class Portal extends Component {
   displayByQuarter(){
     const grouped = this.groupQuarterly();
     const qrt = [
-      {Quarter: 1, Cmpu: this.reduceQuartely(grouped['1'])},
-      {Quarter:2, Cmpu: this.reduceQuartely(grouped['2'])},
-      {Quarter:3, Cmpu: this.reduceQuartely(grouped['3'])},
-      {Quarter:4, Cmpu: this.reduceQuartely(grouped['4'])}
+      {Quarter: 1, Cmpu: this.cpmuQuarterly(grouped['1'])},
+      {Quarter:2, Cmpu: this.cpmuQuarterly(grouped['2'])},
+      {Quarter:3, Cmpu: this.cpmuQuarterly(grouped['3'])},
+      {Quarter:4, Cmpu: this.cpmuQuarterly(grouped['4'])}
     ];
     return qrt;
   }
