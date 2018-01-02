@@ -5,8 +5,9 @@ import { cpmuCalc as calc, formatDate as fmt } from '../../utils';
 const Table = ({period, toggle, data}) => {
 
 	const dataRows = data.map((obj, i) => {
-		const cpmu = (obj.Complaints && obj.UnitsSold) ? calc(obj.Complaints, obj.UnitsSold) : 0.00000;
-		return <Data columns={[fmt(obj.Month), cpmu ]}  key={i} />;
+		const cpmuCol = (obj.Complaints && obj.UnitsSold) ? calc(obj.Complaints, obj.UnitsSold) : 0.00000;
+		const periodCol = (period === 'Month')? fmt(obj.Month) : obj.Quarter;
+		return <Data columns={[periodCol, cpmuCol ]}  key={i} />;
 	});
 
 	return (
