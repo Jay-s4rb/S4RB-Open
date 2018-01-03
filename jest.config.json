@@ -10,7 +10,7 @@
   "moduleFileExtensions": [
     "js",
     "json",
-    "scss"
+    "css"
   ],
   "moduleDirectories": [
     "node_modules"
@@ -18,7 +18,7 @@
   "moduleNameMapper": {
     "^react$": "preact-compat",
     "^react-dom$": "preact-compat",
-    "/style$": "identity-obj-proxy"
+    "\\.css$": "identity-obj-proxy"
   },
   "collectCoverageFrom": [
     "src/**/*.js"

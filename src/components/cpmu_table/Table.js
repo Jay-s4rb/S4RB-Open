@@ -7,10 +7,10 @@ const Table = ({period, toggle, data}) => {
 		let cpmuCol, periodCol;
 		
 		if(period === 'Month'){
-			 cpmuCol = (obj.Complaints && obj.UnitsSold) ? calc(obj.Complaints, obj.UnitsSold) : 0.00000;
-			 periodCol = fmt(obj.Month);
+			cpmuCol = calc(obj.Complaints, obj.UnitsSold);
+			periodCol = fmt(obj.Month);
 		}else{
-			cpmuCol = obj.Cmpu || 0.00000;
+			cpmuCol = obj.Cmpu;
 			periodCol = obj.Quarter;
 		}
 

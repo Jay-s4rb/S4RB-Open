@@ -4,7 +4,7 @@ import endpoints from '../../api';
 import { Component } from 'preact';
 import Table from '../cpmu_table/Table';
 import { cpmuCalc as calc } from '../../utils';
-import {groupBy} from 'lodash';
+import {groupBy, forIn} from 'lodash';
 
 export default
 class Portal extends Component {
@@ -30,6 +30,10 @@ class Portal extends Component {
     });
   }
 
+  processData() {
+     
+  }
+
   togglePeriod() {
     this.setState({
       period: (this.state.period === 'Month' )? 'Quarter' : 'Month',
@@ -38,13 +42,11 @@ class Portal extends Component {
   }
 
   groupQuarterly() {
-     const grp = groupBy(this.state.data, obj => {
-      return obj.Quarter;
-    });
+    const grp = groupBy(this.state.data, obj =>  obj.Quarter);
     return grp;
   }
 
-  cpmuQuarterly(i){
+  cpmuQuarterly(i) {
     let units = 0, comps = 0;
     i.forEach((item) => {
       units +=  item.UnitsSold;
@@ -53,14 +55,11 @@ class Portal extends Component {
     return(calc(comps, units));
   }
 
-  displayByQuarter(){
-    const grouped = this.groupQuarterly();
-    const qrt = [
-      {Quarter: 1, Cmpu: this.cpmuQuarterly(grouped['1'])},
-      {Quarter:2, Cmpu: this.cpmuQuarterly(grouped['2'])},
-      {Quarter:3, Cmpu: this.cpmuQuarterly(grouped['3'])},
-      {Quarter:4, Cmpu: this.cpmuQuarterly(grouped['4'])}
-    ];
+  displayByQuarter() {
+    let qrt = [];
+    forIn(this.groupQuarterly(), (obj, key) => {
+      qrt.push({Quarter: key, Cmpu: this.cpmuQuarterly(obj)});
+    });
     return qrt;
   }
 
