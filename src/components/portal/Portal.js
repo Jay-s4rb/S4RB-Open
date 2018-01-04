@@ -2,8 +2,8 @@ import './portal';
 import endpoints from '../../api';
 import {h, Component } from 'preact';;
 import {  calc , fmt, groupQuarterly, cpmuQuarterly, fillDates } from '../../utils';
-import {groupBy, forIn, uniqBy } from 'lodash';
-import { addMonths, differenceInMonths, getQuarter } from 'date-fns';
+import { forIn, uniqBy } from 'lodash';
+import { getQuarter } from 'date-fns';
 import Table from '../cpmu_table/Table'
 
 export default

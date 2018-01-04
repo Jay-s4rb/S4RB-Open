@@ -1,5 +1,5 @@
-import {groupBy, forIn, uniqBy } from 'lodash';
-import { format,  addMonths, differenceInMonths, getQuarter } from 'date-fns';
+import { groupBy } from 'lodash';
+import { format,  addMonths, differenceInMonths } from 'date-fns';
 
 const cpmuCalc = (complaints, units) => complaints / units * 1000000;
 
