@@ -18,9 +18,9 @@ const Table = ({period, toggle, data}) => {
 	});
 
 	return (
-		<table>
+		<table class="app__table">
 			<tr>
-				<th onClick={e => toggle()} >{(period === 'Quarter')? `${period} (over total of years)` : period }</th>
+				<th class="toggle" onClick={e => toggle()} >{(period === 'Quarter')? `${period} (over total of years)` : period }</th>
 				<th>Cpmu</th>
 			</tr>
 			{dataRows}

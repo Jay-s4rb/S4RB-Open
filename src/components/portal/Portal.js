@@ -44,7 +44,6 @@ class Portal extends Component {
      console.log(pd); */
   }
 
-
   togglePeriod() {
     this.setState({
       period: (this.state.period === 'Month' )? 'Quarter' : 'Month',

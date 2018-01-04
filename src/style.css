@@ -15,3 +15,9 @@ body{
 .app__header h1{
 	font-size: 3.25rem;
 }
+
+.app__table .toggle:hover{
+	cursor: pointer;
+	color: #000;
+	text-decoration: underline;
+}
