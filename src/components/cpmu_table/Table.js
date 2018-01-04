@@ -2,6 +2,7 @@ import { h }  from 'preact';
 import Data from '../table_data/Data';
 
 const Table = ({period, toggle, data}) => {
+	
 	const dataRows = data.map((obj, i) => {
 		let periodCol;
 

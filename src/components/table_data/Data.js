@@ -2,7 +2,6 @@
 * Reusable table data component
 * @Props.columns array of data values
 **/
-
 import { h }  from 'preact';
 
 const TableData = ({columns}) => {
