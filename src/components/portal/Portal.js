@@ -1,11 +1,10 @@
 import './portal';
-import 'milligram';
 import endpoints from '../../api';
 import { Component } from 'preact';
 import Table from '../cpmu_table/Table';
 import { cpmuCalc as calc } from '../../utils';
 import {groupBy, forIn} from 'lodash';
-import moment from 'moment';
+import { addMonths, differenceInMonths  } from 'date-fns';
 
 export default
 class Portal extends Component {
@@ -28,23 +27,23 @@ class Portal extends Component {
           data
         });
         // console.log(this.state.data);
-        this.missingDates();
+        console.log(this.fillDates());
     });
   }
 
-  missingDates() {
-     let dates = this.state.data.map(obj => obj.Month );
-     //console.log(dates);
-     let startd = moment(dates[0]);
-     let endd = moment(dates[dates.length -1]);
-     console.log(startd);
-     console.log(endd);
-     let months = endd.diff(startd, 'months', false);
-     console.log(months);
-     for(let i = 0; i < months; i++){
-      console.log(startd.add(1, 'M').toISOString());
+  fillDates() {
+     const arr = this.state.data.slice(0);
+     const startd = this.state.data[0].Month;
+     const endd = this.state.data[arr.length -1].Month;
+     const months = differenceInMonths(endd, startd); 
+     return[...Array(months+1).keys()].map((i) => addMonths(startd, i));
+     /* let pd = [];
+     for(let i = 0; i < months + 1; i++){
+      pd.push(addMonths(startd, i));
      }
+     console.log(pd); */
   }
+
 
   togglePeriod() {
     this.setState({

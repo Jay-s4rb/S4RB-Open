@@ -1,5 +1,6 @@
 import './style';
 import { h }  from 'preact';
+import 'milligram';
 import Portal from './components/portal/Portal';
 
 const App = () => (

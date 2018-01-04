@@ -1,7 +1,7 @@
-import moment from 'moment';
+import { format } from 'date-fns';
 
 const cpmuCalc = (complaints, units) => complaints / units * 1000000;
 
-const formatDate = (dateTime) => moment(dateTime).format('DD MMMM, YYYY');
+const formatDate = (dateTime) => format(dateTime, 'DD MMMM, YYYY');
 
-export {cpmuCalc, formatDate};
+export { cpmuCalc, formatDate };
