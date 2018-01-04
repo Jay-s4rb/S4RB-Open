@@ -16,8 +16,12 @@ body{
 	font-size: 3.25rem;
 }
 
+.app__table th{
+	color: #000;
+}
+
 .app__table .toggle:hover{
 	cursor: pointer;
-	color: #000;
+	color: #679983;
 	text-decoration: underline;
 }

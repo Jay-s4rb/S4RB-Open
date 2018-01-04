@@ -1,10 +1,10 @@
 import './portal';
 import endpoints from '../../api';
-import {h, Component } from 'preact';
-import Table from '../cpmu_table/Table';
-import { cpmuCalc as calc , formatDate as fmt} from '../../utils';
+import {h, Component } from 'preact';;
+import {  calc , fmt, groupQuarterly, cpmuQuarterly, fillDates } from '../../utils';
 import {groupBy, forIn, uniqBy } from 'lodash';
 import { addMonths, differenceInMonths, getQuarter } from 'date-fns';
+import Table from '../cpmu_table/Table'
 
 export default
 class Portal extends Component {
@@ -32,31 +32,18 @@ class Portal extends Component {
     });
   }
 
-  fillDates() {
-     const arr = this.state.data.slice(0);
-     const startd = this.state.data[0].Month;
-     const endd = this.state.data[arr.length -1].Month;
-     const months = differenceInMonths(endd, startd);
-     return[...Array(months+1).keys()].map((i) => addMonths(startd, i));
-     /* let pd = [];
-     for(let i = 0; i < months + 1; i++){
-      pd.push(addMonths(startd, i));
-     }
-     console.log(pd); */
-  }
-
   rebuildData() {
-    const arr = this.fillDates();
+    const arr = fillDates(this.state.data);
     let filled =[];
     let missing =[];
 
     for(let date of arr) {
       for(let obj of this.state.data){
         if(fmt(date) === fmt(obj.Month)){
-          filled.push({Quarter: getQuarter(new Date(date)), Month: fmt(date), Cmpu: calc(obj.Complaints, obj.UnitsSold)});
+          filled.push({Quarter: getQuarter(new Date(date)), Month: fmt(date), Cmpu: calc(obj.Complaints, obj.UnitsSold).toFixed(8)});
         }
       }
-      missing.push({Quarter: getQuarter(new Date(date)), Month: fmt(date), Cmpu: 0.00000});
+      missing.push({Quarter: getQuarter(new Date(date)), Month: fmt(date), Cmpu: 0.00000.toFixed(5)});
     }
 
     this.setState({
@@ -67,28 +54,14 @@ class Portal extends Component {
   togglePeriod() {
     this.setState({
       period: (this.state.period === 'Month' )? 'Quarter' : 'Month',
-      dataToDisplay: (this.state.period === 'Month' ) ? this.displayByQuarter() : this.state.processedData
+      dataToDisplay: (this.state.period === 'Month' ) ? this.getQuarterly() : this.state.processedData
     });
   }
 
-  groupQuarterly() {
-    const grp = groupBy(this.state.data, obj =>  obj.Quarter);
-    return grp;
-  }
-
-  cpmuQuarterly(i) {
-    let units = 0, comps = 0;
-    i.forEach((item) => {
-      units +=  item.UnitsSold;
-      comps += item.Complaints;
-    });
-    return(calc(comps, units));
-  }
-
-  displayByQuarter() {
+  getQuarterly() {
     let qrt = [];
-    forIn(this.groupQuarterly(), (obj, key) => {
-      qrt.push({Quarter: key, Cmpu: this.cpmuQuarterly(obj)});
+    forIn(groupQuarterly(this.state.data), (obj, key) => {
+      qrt.push({Quarter: key, Cmpu: cpmuQuarterly(obj).toFixed(9)});
     });
     return qrt;
   }
