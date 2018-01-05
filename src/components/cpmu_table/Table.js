@@ -5,7 +5,6 @@ const Table = ({period, toggle, data}) => {
 
 	const dataRows = data.map((obj, i) => {
 		let periodCol = (period === 'Month')? obj.Month : obj.Quarter;
-
 		return <Data columns={[periodCol, obj.Cpmu ]}  key={i} />;
 	});
 
