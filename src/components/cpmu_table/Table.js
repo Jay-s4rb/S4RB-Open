@@ -2,7 +2,7 @@ import { h }  from 'preact';
 import Data from '../table_data/Data';
 
 const Table = ({period, toggle, data}) => {
-	
+
 	const dataRows = data.map((obj, i) => {
 		let periodCol;
 
@@ -12,7 +12,7 @@ const Table = ({period, toggle, data}) => {
 			periodCol = obj.Quarter;
 		}
 
-		return <Data columns={[periodCol, obj.Cmpu ]}  key={i} />;
+		return <Data columns={[periodCol, obj.Cpmu ]}  key={i} />;
 	});
 
 	return (

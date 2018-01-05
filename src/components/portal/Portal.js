@@ -40,10 +40,10 @@ class Portal extends Component {
     for(let date of arr) {
       for(let obj of this.state.data){
         if(fmt(date) === fmt(obj.Month)){
-          filled.push({Quarter: getQuarter(new Date(date)), Month: fmt(date), Cmpu: calc(obj.Complaints, obj.UnitsSold).toFixed(8)});
+          filled.push({Quarter: getQuarter(new Date(date)), Month: fmt(date), Cpmu: calc(obj.Complaints, obj.UnitsSold).toFixed(8)});
         }
       }
-      missing.push({Quarter: getQuarter(new Date(date)), Month: fmt(date), Cmpu: 0.00000.toFixed(5)});
+      missing.push({Quarter: getQuarter(new Date(date)), Month: fmt(date), Cpmu: 0.00000.toFixed(5)});
     }
 
     this.setState({
@@ -61,7 +61,7 @@ class Portal extends Component {
   getQuarterly() {
     let qrt = [];
     forIn(groupQuarterly(this.state.data), (obj, key) => {
-      qrt.push({Quarter: key, Cmpu: cpmuQuarterly(obj).toFixed(9)});
+      qrt.push({Quarter: key, Cpmu: cpmuQuarterly(obj).toFixed(9)});
     });
     return qrt;
   }
