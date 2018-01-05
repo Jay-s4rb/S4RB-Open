@@ -1,7 +1,7 @@
 import endpoints from '../../api';
 import {h, Component } from 'preact';
-import {  calc , fmt, groupQuarterly, cpmuQuarterly, fillDates } from '../../utils';
-import { forIn, uniqBy } from 'lodash';
+import { groupQuarterly, cpmuQuarterly, fillDates, allDates } from '../../utils';
+import { forIn } from 'lodash';
 import { getQuarter } from 'date-fns';
 import Table from '../cpmu_table/Table';
 
@@ -32,21 +32,9 @@ class Portal extends Component {
   }
 
   rebuildData() {
-    const arr = fillDates(this.state.data);
-    let filled =[];
-    let missing =[];
-
-    for(let date of arr) {
-      for(let obj of this.state.data){
-        if(fmt(date) === fmt(obj.Month)){
-          filled.push({Quarter: obj.Quarter, Month: fmt(date), Cpmu: calc(obj.Complaints, obj.UnitsSold).toFixed(8)});
-        }
-      }
-      missing.push({Quarter: getQuarter(new Date(date)), Month: fmt(date), Cpmu: 0.00000.toFixed(5)});
-    }
-
+    const all = fillDates(allDates(this.state.data), this.state.data);
     this.setState({
-      processedData: uniqBy(filled.concat(missing).sort((a, b) => new Date(a.Month) - new Date(b.Month)), (o) => o.Month)
+      processedData: all
     });
   }
 

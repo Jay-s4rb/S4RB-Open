@@ -1,4 +1,4 @@
-import { calc, fmt, groupQuarterly, cpmuQuarterly, fillDates } from './index';
+import { calc, fmt, groupQuarterly, cpmuQuarterly, allDates } from './index';
 import { uniqBy } from 'lodash';
 
 test('should format dateString', () => {
