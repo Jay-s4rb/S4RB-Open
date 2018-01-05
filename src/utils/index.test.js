@@ -1,6 +1,7 @@
 import { calc, fmt, groupQuarterly, cpmuQuarterly, fillDates } from './index';
+import { uniqBy } from 'lodash';
 
-test('Should format dateString', () => {
+test('should format dateString', () => {
   const date = fmt("2012-01-01T00:00:00");
   expect(date).toEqual(expect.stringContaining('01 January, 2012'));
 });
@@ -16,3 +17,5 @@ test('should return object with keys 1..4', () => {
   const keys = Object.keys(grouped);
   expect(keys).toEqual(expect.arrayContaining(['1','2','3','4']));
 });
+
+

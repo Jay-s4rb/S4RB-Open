@@ -18,10 +18,12 @@
     "build/*"
   ],
   "devDependencies": {
+    "es6-promise": "^4.2.2",
     "eslint": "^4.5.0",
     "eslint-config-synacor": "^1.1.0",
     "identity-obj-proxy": "^3.0.0",
     "if-env": "^1.0.0",
+    "isomorphic-fetch": "^2.2.1",
     "jest": "^22.0.4",
     "jest-css-modules": "^1.1.0",
     "preact-cli": "^2.0.0",
