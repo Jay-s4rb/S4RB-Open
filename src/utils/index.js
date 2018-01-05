@@ -14,7 +14,7 @@ const fillDates = (arr) => {
     for(let i = 0; i < months + 1; i++){
         pd.push(addMonths(s, i));
     }
-    console.log(pd); */
+     */
  };
 
 const groupQuarterly = (arr) =>  groupBy(arr, obj =>  obj.Quarter);
