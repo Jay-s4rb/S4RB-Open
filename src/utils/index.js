@@ -10,6 +10,11 @@ const fillDates = (arr) => {
     const e = arr[arr.length -1].Month;
     const months = differenceInMonths(e, s);
     return[...Array(months+1).keys()].map((i) => addMonths(s, i));
+    /* let pd = [];
+    for(let i = 0; i < months + 1; i++){
+        pd.push(addMonths(s, i));
+    }
+    console.log(pd); */
  };
 
 const groupQuarterly = (arr) =>  groupBy(arr, obj =>  obj.Quarter);
