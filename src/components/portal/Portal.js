@@ -1,10 +1,9 @@
-import './portal';
 import endpoints from '../../api';
-import {h, Component } from 'preact';;
+import {h, Component } from 'preact';
 import {  calc , fmt, groupQuarterly, cpmuQuarterly, fillDates } from '../../utils';
 import { forIn, uniqBy } from 'lodash';
 import { getQuarter } from 'date-fns';
-import Table from '../cpmu_table/Table'
+import Table from '../cpmu_table/Table';
 
 export default
 class Portal extends Component {
