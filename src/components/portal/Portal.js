@@ -39,7 +39,7 @@ class Portal extends Component {
     for(let date of arr) {
       for(let obj of this.state.data){
         if(fmt(date) === fmt(obj.Month)){
-          filled.push({Quarter: getQuarter(new Date(date)), Month: fmt(date), Cpmu: calc(obj.Complaints, obj.UnitsSold).toFixed(8)});
+          filled.push({Quarter: obj.Quarter, Month: fmt(date), Cpmu: calc(obj.Complaints, obj.UnitsSold).toFixed(8)});
         }
       }
       missing.push({Quarter: getQuarter(new Date(date)), Month: fmt(date), Cpmu: 0.00000.toFixed(5)});
