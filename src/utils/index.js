@@ -18,8 +18,8 @@ const allDates = (arr) => {
 };
 
 const fillDates = (m, e) => {
-  let existing = [];
-  let missing = [];
+  const existing = [];
+  const missing = [];
 
   for (let date of m) {
     for (let obj of e) {
