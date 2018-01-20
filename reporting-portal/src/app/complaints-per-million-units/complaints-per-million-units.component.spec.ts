@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpModule, Http, BaseRequestOptions, XHRBackend, ResponseOptions } from '@angular/http';
+import { MockBackend } from '@angular/http/testing';
 
 import { ComplaintsPerMillionUnitsComponent } from './complaints-per-million-units.component';
+import { ComplaintsService } from '../services/complaints.service';
+
 
 describe('ComplaintsPerMillionUnitsComponent', () => {
   let component: ComplaintsPerMillionUnitsComponent;
@@ -8,7 +12,10 @@ describe('ComplaintsPerMillionUnitsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ComplaintsPerMillionUnitsComponent ]
+      declarations: [ ComplaintsPerMillionUnitsComponent ],
+      providers: [ ComplaintsService,
+                  {provide: XHRBackend, useClass: MockBackend} ],
+      imports: [HttpModule]
     })
     .compileComponents();
   }));

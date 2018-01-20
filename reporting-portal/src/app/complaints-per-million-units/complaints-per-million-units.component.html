@@ -1,3 +1,6 @@
-<p>
-  complaints-per-million-units works!
-</p>
+<div class="table">
+  <div class="table__row" *ngFor="let complaintsPerMillionUnits of complaintsPerMillionUnitsList">
+    <span>{{complaintsPerMillionUnits.Quarter}}</span>
+    <span>{{convertToDateString(complaintsPerMillionUnits.Month)}}</span>
+  </div>
+</div>
