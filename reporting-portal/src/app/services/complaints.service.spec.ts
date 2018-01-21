@@ -46,8 +46,8 @@ describe('ComplaintsService', () => {
             })));
           });
 
-          complaintsService.getComplaintsPerMillionUnits().subscribe((ComplaintsPerMillionUnits) => {
-            const data = ComplaintsPerMillionUnits  .data
+          complaintsService.getComplaintsPerMillionUnitsMonthly().subscribe((ComplaintsPerMillionUnits) => {
+            const data = ComplaintsPerMillionUnits.data
             expect(data.length).toBe(2);
             expect(data[0].Quarter).toEqual('1');
             expect(data[0].Month).toEqual('2012-01-01T00:00:00');
