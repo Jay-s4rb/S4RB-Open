@@ -1,3 +1,13 @@
-<p>
-  toggle works!
-</p>
+<div class="switch__container">
+<label class="switch">
+    <input type="checkbox" (change)="toggleValue = !toggleValue; onToggle.emit(toggleValue)">
+    
+    <span class="slider"></span>
+    
+</label>
+<div>
+    <span class="switch__label">{{firstOption}}</span>
+    <span class="switch__label">{{secondOption}}</span>
+</div>
+
+</div>

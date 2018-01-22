@@ -24,7 +24,8 @@ import { ComplaintsService } from './services/complaints.service'
     HttpModule
   ],
   exports: [
-    RouterModule
+    RouterModule,
+    ToggleComponent
   ],
   providers: [ComplaintsService],
   bootstrap: [AppComponent]

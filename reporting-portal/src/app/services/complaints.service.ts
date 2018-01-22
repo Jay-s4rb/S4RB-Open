@@ -61,8 +61,6 @@ export class ComplaintsService {
         
       }
 
-      console.log(CPMUData)
-
       return CPMUData;
     })
     .catch(err => {

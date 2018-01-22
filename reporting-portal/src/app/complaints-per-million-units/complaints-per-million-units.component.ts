@@ -1,11 +1,12 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 
-import { ComplaintsService } from '../services/complaints.service'
-import { ComplaintsPerMillionUnits } from '../models/ComplaintsPerMillionUnits.model'
-
+import { ComplaintsService } from '../services/complaints.service';
+import { ComplaintsPerMillionUnits } from '../models/ComplaintsPerMillionUnits.model';
+import { ToggleComponent } from '../shared/toggle/toggle.component'
+import { Constants } from '../Constants';
+import { consolidation } from '../Enums'
 
 import { Subject } from 'rxjs/Subject';
-import { Constants } from '../Constants';
 
 
 @Component({
@@ -21,6 +22,8 @@ export class ComplaintsPerMillionUnitsComponent implements OnInit, OnDestroy {
   public CPMUDataQuarterly: Array<ComplaintsPerMillionUnits>
   public complaintYears: Array<string>;
   public quarters = Constants.quarters;
+  public consolidation = consolidation
+  public monthlyOrQuarterly = consolidation.monthly;
   private ngUnsubscribe: Subject<void> = new Subject<void>();
 
   // On init gets all complaints from API and assigns them complaintsPerMillionUnits
@@ -43,5 +46,9 @@ export class ComplaintsPerMillionUnitsComponent implements OnInit, OnDestroy {
     this.ngUnsubscribe.next();
     this.ngUnsubscribe.complete();
   } 
+
+  public toggleMonthlyQuarterly(e){
+    e ? this.monthlyOrQuarterly = consolidation.quarterly : this.monthlyOrQuarterly = consolidation.monthly;
+  }
 
 }
