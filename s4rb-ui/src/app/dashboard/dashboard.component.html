@@ -1,0 +1,37 @@
+<div>
+  <div>
+    <p>please select preferred view:
+      <mat-radio-group [(ngModel)]="consolidation">
+        <mat-radio-button
+          *ngFor="let option of consolidationOptions"
+          class="radio-button"
+          [value]="option"
+          (click)="onToggle()">
+          {{option}}
+        </mat-radio-button>
+      </mat-radio-group>
+    </p>
+  </div>
+
+  <div class="mat-elevation-z8">
+    <mat-table #table [dataSource]="dataSource">
+      <ng-container matColumnDef="month">
+        <mat-header-cell *matHeaderCellDef> Month: </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.Month}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="quarter">
+        <mat-header-cell *matHeaderCellDef> Quarter: </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.Quarter}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="cpmu">
+        <mat-header-cell *matHeaderCellDef> CPMU: </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.CPMU |  slice:0:8}} </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  </div>
+</div>
