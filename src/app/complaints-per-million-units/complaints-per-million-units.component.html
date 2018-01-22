@@ -1,0 +1,33 @@
+
+<div class="table">
+  <app-toggle [firstOption]="'Monthly'" [secondOption]="'Quarterly'" (onToggle)="toggleMonthlyQuarterly($event)"></app-toggle>
+  <table id="monthly" *ngIf="monthlyOrQuarterly == consolidation.monthly">
+    <tr class="table__row">
+
+      <th class="table__heading">Month</th>
+      <th class="table__heading">CPMU</th>
+    </tr>
+    <tr class="table__row" *ngFor="let CPMUObject of CPMUListMonthly">
+
+      <td class="table__data">{{CPMUObject.Month}}</td>
+      <td class="table__data">{{CPMUObject.CPMU}}</td>
+    </tr>
+  </table>
+
+  <table id="quarterly" *ngIf="monthlyOrQuarterly == consolidation.quarterly">
+    <tr class="table__row">
+      <th class="table__heading">Quarter</th>
+      <th class="table__heading">CPMU</th>
+    </tr>
+    <ng-container *ngFor="let year of complaintYears">
+      <tr class="table__row"*ngFor="let quarter of CPMUDataQuarterly[year]; let i = index">
+        <td class="table__data" *ngIf="quarter">
+            {{year}} Q{{i+1}}
+        </td>
+        <td class="table__data" *ngIf="quarter">
+            {{quarter.CPMUAverage}}
+        </td>
+      </tr>
+    </ng-container>
+  </table>
+</div>

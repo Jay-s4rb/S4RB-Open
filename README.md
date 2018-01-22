@@ -1,60 +1,42 @@
-# Interview Questions #
+# ReportingPortal
 
-Imagine you have been tasked by the Account Manager to create a basic reporting application that will allow the account manager to view complaints via a online portal.
-The company already has an internal json rest api that stores all the complaints that the business has recieved and the number of corresponding sales in that period.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.5.
 
-The internal json rest api can be hosted locally using the following commands:
+## Notes
 
-```shell
-$ npm install -g json-server
+I decided to use Angular 5 because of Angular's opinionated nature making it easier for other developers who already know Angular to jump on the project. As this is part of a much larger interconnected project it made sense to make it as easy as possible for other developers to jump straight in and the modularity of Angular allows it to scale nicely into a larger project. Angular-CLI also makes it extremely quick to get started by generating the boilerplate with tests built in by default.
 
-$ json-server --watch db.json
-```
+The 'complaints-per-million-units' component gets and displays the cpmu data. The toggle component (to toggle between monthly and quarterly) is a shared compnent to make it easily reusable throughout making future development faster.
 
-## 1. Develop a basic reporting portal using any frameworks you see fit for purpose.
+The calls to the rest API are in the complaints-per-million-units service it also contains methods to calculate CPMU (montly and quarterly), to fill in any missing months in the data, and a method to sort the data into a quarterly structure which is easier to iterate over in the template.
 
-![Example Reporting Porta](/example-2.png "Example Reporting Portal")
-
-## 2. Allow the ability for the user to toggle Quarter and Month consolidation.
-
-For example:
-
-|Month       | CPMU|
-|---------- | ----------| 
-|01 January 2012|	5.47388874|
-|01 February 2012|	57.65682657|
-|01 March 2012|	12.12591551|
-|01 May 2012|	67.77995238|
-|01 June 2012|	93.67857009|
-
-Should be displayed as:
-
-|Quarter       | CPMU|
-|---------- | ----------|
-|1|	7.186971458|
-|2|	82.6888992|
+I have also written some basic unit tests for the service and two components. 
 
 
-## 3. Within the report there are missing months when data are not available, these days should be displayed as 0.
+## API
 
-For example:
+Run `json-server --watch db.json` to start API on http://localhost:3000/
 
-Month       | Amounts
----------- | ----------|
-|01 February 2012|	57.65682657|
-|01 March 2012|	12.12591551|
-|01 May 2012|	67.77995238|
-|01 June 2012|	93.67857009|
+## Development server
 
-Should be displayed as:
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-|Month       | Amounts
-|---------- | ----------|
-|01 February 2012|	57.65682657|
-|01 March 2012|	12.12591551|
-|01 April 2012|	0.00000|
-|01 June 2012|	93.67857009|
-|01 July 2012|	57.29516406|
+## Code scaffolding
 
-# The Test #
-Hopefully, completing the test itself shouldn’t be too difficult to complete, but what we are looking for here is you approach the project, the tests put in place, the structure of the code etc… You should approach this as if it were part of much bigger interconnected project. There are no prizes for finishing quickly.
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+
+## Build
+
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+
+## Running unit tests
+
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+## Running end-to-end tests
+
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+
+## Further help
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
