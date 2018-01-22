@@ -1,7 +1,7 @@
 
 <div class="table">
   <app-toggle [firstOption]="'Monthly'" [secondOption]="'Quarterly'" (onToggle)="toggleMonthlyQuarterly($event)"></app-toggle>
-  <table *ngIf="monthlyOrQuarterly == consolidation.monthly">
+  <table id="monthly" *ngIf="monthlyOrQuarterly == consolidation.monthly">
     <tr class="table__row">
 
       <th class="table__heading">Month</th>
@@ -14,7 +14,7 @@
     </tr>
   </table>
 
-  <table *ngIf="monthlyOrQuarterly == consolidation.quarterly">
+  <table id="quarterly" *ngIf="monthlyOrQuarterly == consolidation.quarterly">
     <tr class="table__row">
       <th class="table__heading">Quarter</th>
       <th class="table__heading">CPMU</th>

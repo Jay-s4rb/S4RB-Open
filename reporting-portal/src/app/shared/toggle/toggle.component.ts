@@ -12,7 +12,7 @@ export class ToggleComponent implements OnInit {
   @Output() onToggle = new EventEmitter<boolean>();
   @Input() firstOption: string;
   @Input() secondOption: string;
-  private toggleValue = false;
+  public toggleValue = false;
 
   ngOnInit() {
   }
