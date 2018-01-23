@@ -1,0 +1,15 @@
+<a href="/complaints">See monthly data</a>
+
+<div *ngIf="complaints">
+
+  <table class="">
+    <thead>
+      <th>Quarter</th>
+      <th>CPMU</th>
+    </thead>
+    <tr *ngFor="let complaint of complaints">
+      <td>{{ complaint.Quarter }}</td>
+      <td>{{ complaint.CPMU }}</td>
+    </tr>
+  </table>
+  </div>
