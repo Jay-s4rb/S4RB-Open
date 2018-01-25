@@ -1,0 +1,21 @@
+@import 'config.scss';
+header#top-nav {
+    background: $blue-02;
+
+    nav ul li a {
+        color: $blue-04;
+    }
+
+    nav ul li a i {
+        margin-right: 10px;
+    }
+
+    nav ul li a:hover {
+        color: $white;
+    }
+
+    nav ul li a.uk-active {
+        color: #fff;
+    }
+}
+
