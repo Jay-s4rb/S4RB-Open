@@ -1,0 +1,41 @@
+<!--only a few styles-->
+<style>
+    th, td {
+        padding: 5px 25px;
+    }
+
+    tr:nth-child(even) {
+        background: #d1deec
+    }
+</style>
+
+<div ng-if="!quarter" ng-cloak layout="column" layout-align="center center" style="padding: 25px 0 25px 0">
+    <!--month view-->
+    <table>
+        <tr md-colors="{background: 'primary'}">
+            <th> Month</th>
+            <th> CPMU</th>
+        </tr>
+        <tr ng-repeat="(key, month) in year">
+            <td> {{monthMap[key]}}</td>
+            <td> {{month.cpmu | number: 8}}</td>
+        </tr>
+    </table>
+</div>
+
+
+<div ng-if="quarter" ng-cloak layout="column" layout-align="center center" style="padding: 25px 0 25px 0">
+    <!--quarter view-->
+    <table>
+        <tr md-colors="{background: 'primary'}">
+            <th> Quarter</th>
+            <th> CPMU</th>
+        </tr>
+        <tr ng-repeat="(key, quarter) in quarters">
+            <td> {{key}}</td>
+            <td> {{quarter.cpmu | number: 8}} </td>
+        </tr>
+    </table>
+
+
+</div>
