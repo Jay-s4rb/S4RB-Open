@@ -1,6 +1,7 @@
 <template lang="pug">
 v-container
   v-layout(row justify-center)
+    lineChart(v-if='bShowLineChart' :chartData='oChartData' :options='oChartOptions')
     table
       tr
         th(v-for='header in headers') {{ header.text }}
@@ -14,7 +15,7 @@ v-container
           span(
             v-if="showQuarter(i)"
           ) {{ item.Quarter }}
-        td.text-xs-left.pa-1.pr-2(v-show="bShowMonth") {{ item.Month | humanMonth }}
+        td.text-xs-left.pa-1.pr-2(v-show="bShowMonth") {{ getMonth(item.Month) }}
         td.text-xs-right.pa-1.pr-2 {{ item.UnitsSold }}
         td.text-xs-right.pa-1.pr-2 {{ item.Complaints }}
         td.text-xs-right.pa-1.pr-2 {{ (item.Complaints / item.UnitsSold) | stdformat }}

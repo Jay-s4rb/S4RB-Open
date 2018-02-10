@@ -1,8 +1,7 @@
 import _ from 'lodash'
 import dateTable from '@/assets/db.json'
-const aMonths = Object.freeze([
-  'January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'
-])
+import aMonths from '@/assets/aMonths.js'
+import lineChart from '@/components/lineChart.js'
 
 export default {
   data () {
@@ -10,6 +9,7 @@ export default {
       iTotal: 0,
       aItems: [],
       bLoading: true,
+      bShowLineChart: true,
       aHeaders: [
         {
           text: 'Year',
@@ -38,13 +38,6 @@ export default {
     this.load()
   },
   filters: {
-    humanMonth (sDate) {
-      const dDate = new Date(sDate)
-      const iMonth = dDate.getMonth()
-      if (!isNaN(iMonth)) {
-        return aMonths[iMonth]
-      }
-    },
     stdformat (num) {
       return Number.parseFloat(num).toPrecision(4)
     }
@@ -94,6 +87,28 @@ export default {
         return vm.getYear(oItem.Month) === vm.getYear(arr[arr.length - 1].Month)
       }
       return vm.aByAny(fnSumIf)
+    },
+
+    oChartData () {
+      let vm = this
+      return {
+        labels: vm.aItems.map((o) => {
+          return vm.getMonth(o.Month)
+        }),
+        datasets: [
+          {
+            label: 'GitHub Commits',
+            backgroundColor: '#c8c8ff',
+            data: vm.aItems.map((o) => {
+              return o.UnitsSold
+            })
+          }
+        ]
+      }
+    },
+
+    oChartOptions () {
+      return {}
     }
   },
   methods: {
@@ -119,6 +134,13 @@ export default {
     getYear (sDate) {
       const dDate = new Date(sDate)
       return dDate.getFullYear()
+    },
+    getMonth (sDate) {
+      const dDate = new Date(sDate)
+      const iMonth = dDate.getMonth()
+      if (!isNaN(iMonth)) {
+        return aMonths[iMonth]
+      }
     },
     showQuarter (i) {
       let vm = this
@@ -257,5 +279,6 @@ export default {
         }, 1000)
       })
     }
-  }
+  },
+  components: {lineChart}
 }
