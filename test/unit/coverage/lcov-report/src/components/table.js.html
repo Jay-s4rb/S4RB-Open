@@ -1,0 +1,728 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/components/table.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">All files</a> / <a href="index.html">src/components</a> table.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">98.88% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>88/89</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">94.44% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>34/36</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>4/4</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">98.86% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>87/88</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">252x</span>
+<span class="cline-any cline-yes">252x</span>
+<span class="cline-any cline-yes">252x</span>
+<span class="cline-any cline-yes">252x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">228x</span>
+<span class="cline-any cline-yes">228x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">152x</span>
+<span class="cline-any cline-yes">152x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">76x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">228x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">76x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">76x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">519x</span>
+<span class="cline-any cline-yes">519x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">252x</span>
+<span class="cline-any cline-yes">252x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">252x</span>
+<span class="cline-any cline-yes">252x</span>
+<span class="cline-any cline-yes">247x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">82x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">82x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">34x</span>
+<span class="cline-any cline-yes">34x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">82x</span>
+<span class="cline-any cline-yes">82x</span>
+<span class="cline-any cline-yes">82x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">146x</span>
+<span class="cline-any cline-yes">146x</span>
+<span class="cline-any cline-yes">146x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">146x</span>
+<span class="cline-any cline-yes">146x</span>
+<span class="cline-any cline-yes">142x</span>
+<span class="cline-any cline-yes">142x</span>
+<span class="cline-any cline-yes">142x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">146x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">146x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">146x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">142x</span>
+<span class="cline-any cline-yes">142x</span>
+<span class="cline-any cline-yes">142x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">142x</span>
+<span class="cline-any cline-yes">142x</span>
+<span class="cline-any cline-yes">142x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">146x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">146x</span>
+<span class="cline-any cline-yes">146x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">146x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import _ from 'lodash'
+import dateTable from '@/assets/db.json'
+const aMonths = Object.freeze([
+  'January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'
+])
+&nbsp;
+export default {
+  data () {
+    return {
+      iTotal: 0,
+      aItems: [],
+      bLoading: true,
+      headers: [
+        {
+          text: 'Year',
+          align: 'left',
+          sortable: false,
+          value: 'iYear'
+        },
+        {
+          text: 'Quarter',
+          align: 'left',
+          sortable: false,
+          value: 'iQuarter'
+        },
+        { text: 'Month', value: 'sMonth', sortable: false },
+        { text: 'Units Sold', value: 'iUnitsSold', sortable: false },
+        { text: 'Complaints', value: 'iComplaints', sortable: false }
+      ]
+    }
+  },
+  watch: {
+    aByQuarter (newVal) {
+      console.log(newVal)
+    }
+  },
+  mounted () {
+    this.load()
+  },
+  filters: {
+    humanMonth (sDate) {
+      const dDate = new Date(sDate)
+      const iMonth = dDate.getMonth()
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (!isNaN(iMonth)) {
+        return aMonths[iMonth]
+      }
+    }
+  },
+  computed: {
+    items () {
+      let vm = this
+      return vm.bByQuarter ? vm.aByQuarter : vm.aItems
+    },
+    bByQuarter () {
+      return JSON.parse(this.$route.params.bByQuarter)
+    },
+    aByQuarter () {
+      let vm = this
+      return _.cloneDeep(this.aItems).reduce((arr, oItem) =&gt; {
+        oItem.bBlank = false
+        if (arr.length &gt; 0 &amp;&amp;
+          oItem.Quarter === arr[arr.length - 1].Quarter) {
+          arr[arr.length - 1].Complaints += oItem.Complaints
+          arr[arr.length - 1].UnitsSold += oItem.UnitsSold
+        } else {
+          arr.push(oItem)
+        }
+        return arr
+      }, []).map(vm.mapIsBlank)
+    }
+  },
+  methods: {
+    mapIsBlank (item) {
+      if (item.Complaints === 0 &amp;&amp; item.UnitsSold === 0) {
+        item.bBlank = true
+      }
+      return item
+    },
+    getYear (sDate) {
+      const dDate = new Date(sDate)
+      return dDate.getFullYear()
+    },
+    showQuarter (i) {
+      let vm = this
+      return !(i &gt; 0 &amp;&amp; vm.items[i - 1].Quarter === vm.items[i].Quarter)
+    },
+    showYear (i) {
+      let vm = this
+      if (i === 0) { return true }
+      return vm.getYear(vm.items[i].Month) !== vm.getYear(vm.items[i - 1].Month)
+    },
+    load () {
+      let vm = this
+      vm.getYearFromApi().then(({iTotal, aItems}) =&gt; {
+        vm.aItems = aItems
+        vm.iTotal = iTotal
+      })
+    },
+    leadingZero (i) {
+      return i &lt;= 9 ? '0' + i : i
+    },
+    createBlank (iMonth, iYear) {
+      let vm = this
+      return {
+        Quarter: `${Math.ceil((iMonth + 1) / 3)}`,
+        Month: `${iYear}-${vm.leadingZero(iMonth + 1)}-01T00:00:00`,
+        Complaints: 0,
+        UnitsSold: 0,
+        bBlank: true
+      }
+    },
+    pushBlanks ({ iStartMonth, iStartYear, iEndMonth, iEndYear, aItemsFull }) {
+      let vm = this
+      while (
+        (iStartYear * 12 + iStartMonth) &lt;
+        (iEndYear * 12 + iEndMonth)
+      ) {
+        aItemsFull.push(vm.createBlank(iStartMonth, iStartYear))
+        iStartMonth++
+        if (iStartMonth === 12) {
+          iStartMonth = 0
+          iStartYear++
+        }
+      }
+    },
+    computeMissingMonths (aItems) {
+      // presumes aItems are sorted by date
+&nbsp;
+      let vm = this
+      let iIndex = 0
+      const aItemsFull = []
+      const l = aItems.length
+      while (iIndex &lt; l) {
+        const dDate = new Date(aItems[iIndex].Month)
+        const mm = dDate.getMonth()
+        const yy = dDate.getFullYear()
+        let mmPrev, yyPrev
+        const bEnd = iIndex === l - 1
+        if (iIndex &gt; 0) {
+          const dDatePrev = new Date(aItems[iIndex - 1].Month)
+          mmPrev = dDatePrev.getMonth()
+          yyPrev = dDatePrev.getFullYear()
+        }
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (isNaN(mm) || isNaN(yy)) {
+<span class="cstat-no" title="statement not covered" >          continue</span>
+        }
+        let iStartMonth, iStartYear, iEndMonth, iEndYear
+        let bPush = false
+&nbsp;
+        if (iIndex === 0) {
+          // Months before
+          if (mm !== 0) {
+            iStartMonth = 0
+            iStartYear = yy
+            iEndMonth = mm
+            iEndYear = yy
+            bPush = true
+          }
+        } else {
+          // Months between
+          iStartMonth = mmPrev + 1
+          iStartYear = yyPrev
+          if (iStartMonth &gt;= 12) {
+            iStartMonth = 0
+            iStartYear++
+          }
+          iEndMonth = mm
+          iEndYear = yy
+          bPush = (iStartYear * 12 + iStartMonth) &lt;
+        (iEndYear * 12 + iEndMonth)
+        }
+        if (bPush) {
+          vm.pushBlanks({
+            iStartMonth,
+            iStartYear,
+            iEndMonth,
+            iEndYear,
+            aItemsFull
+          })
+        }
+        aItemsFull.push(aItems[iIndex])
+        if (bEnd) {
+          // Months after
+          iStartMonth = mm + 1
+          iStartYear = yy
+          iEndMonth = 12
+          iEndYear = iStartYear
+          bPush = iStartMonth !== 12
+&nbsp;
+          vm.pushBlanks({
+            iStartMonth,
+            iStartYear,
+            iEndMonth,
+            iEndYear,
+            aItemsFull
+          })
+        }
+        iIndex++
+      }
+      return aItemsFull
+    },
+    getYearFromApi () {
+      let vm = this
+      vm.bLoading = true
+      return new Promise((resolve, reject) =&gt; {
+        const aAll = dateTable.CPMU
+        const iTotal = aAll.length
+&nbsp;
+        setTimeout(() =&gt; {
+          this.bLoading = false
+          resolve({
+            aItems: this.computeMissingMonths(
+              _.orderBy(_.cloneDeep(aAll), ['Month'], ['asc'])
+            ),
+            iTotal
+          })
+        }, 1000)
+      })
+    }
+  }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sat Feb 10 2018 10:55:38 GMT+0000 (GMT)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>
