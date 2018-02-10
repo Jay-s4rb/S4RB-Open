@@ -9,8 +9,8 @@ git remote add deploy ssh://jono@blogjono.com:/home/jono/jono/projects/git/s4rb
 git push deploy master
 
 # server
-git clone /home/jono/jono/projects/git/highstrung.uk /home/jono/jono/projects/dynamic/highstrung.uk
-cd /home/jono/jono/projects/dynamic/highstrung.uk
+git clone /home/jono/jono/projects/git/s4rb /home/jono/jono/projects/dynamic/s4rb
+cd /home/jono/jono/projects/dynamic/s4rb
 pnpm install
 pnpm run build
 forever start app

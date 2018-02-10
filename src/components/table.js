@@ -30,8 +30,48 @@ export default {
     }
   },
   watch: {
-    aByQuarter (newVal) {
-      console.log(newVal)
+    items () {
+      let vm = this
+      let a = _.cloneDeep(vm.items)
+
+      vm.oChartData = {
+        labels: a.map((o) => {
+          if (vm.$route.params.bBy === 'Year') {
+            return vm.getYear(o.Month)
+          }
+          if (vm.$route.params.bBy === 'Quarter') {
+            return `${vm.getYear(o.Month)} Q${o.Quarter}`
+          }
+          return vm.getYear(o.Month) + ' ' + vm.getMonth(o.Month)
+        }),
+        datasets: [
+          {
+            label: 'Units Sold',
+            backgroundColor: '#0a0',
+            data: a.map((o) => {
+              return o.UnitsSold
+            })
+          },
+          {
+            label: 'Complaints',
+            backgroundColor: '#eaa',
+            data: a.map((o) => {
+              return o.Complaints
+            })
+          },
+          {
+            label: 'Complaints per Unit',
+            backgroundColor: '#aaf',
+            data: a.map((o) => {
+              return (o.Complaints / o.UnitsSold) * 100
+            })
+          }
+        ]
+      }
+      vm.oChartOptions = {
+        responsive: true,
+        steppedLine: true
+      }
     }
   },
   mounted () {
@@ -51,7 +91,8 @@ export default {
         Quarter: () => (vm.aByQuarter),
         Year: () => (vm.aByYear)
       }
-      return o[vm.$route.params.bBy]()
+      const res = o[vm.$route.params.bBy]()
+      return _.isEmpty(res) ? [] : res
     },
     headers () {
       let vm = this
@@ -87,28 +128,6 @@ export default {
         return vm.getYear(oItem.Month) === vm.getYear(arr[arr.length - 1].Month)
       }
       return vm.aByAny(fnSumIf)
-    },
-
-    oChartData () {
-      let vm = this
-      return {
-        labels: vm.aItems.map((o) => {
-          return vm.getMonth(o.Month)
-        }),
-        datasets: [
-          {
-            label: 'GitHub Commits',
-            backgroundColor: '#c8c8ff',
-            data: vm.aItems.map((o) => {
-              return o.UnitsSold
-            })
-          }
-        ]
-      }
-    },
-
-    oChartOptions () {
-      return {}
     }
   },
   methods: {

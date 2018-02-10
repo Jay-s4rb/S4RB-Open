@@ -7,8 +7,7 @@
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "jest": "jest --config test/unit/jest.conf.js --coverage",
-    "build": "node build/build.js",
-    "deploy": "scp -r github-S4RBOpen/ jono@blogjono.com:/home/jono/jono/projects/dynamic"
+    "build": "node build/build.js"
   },
   "dependencies": {
     "babel-runtime": "^6.26.0",
