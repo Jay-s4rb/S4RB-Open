@@ -1,0 +1,58 @@
+<div class="o-container">
+  <div class="c-title">
+    {{ title }} <span>- Grouped By {{ byMonth ? 'Month' : 'Quarter' }}</span>
+  </div>
+  <div class="c-selectors" (click)="toggle()">
+    Change view to {{ !byMonth ? 'Month' : 'Quarter' }}
+  </div>
+  <hr />
+  <table class="c-table" *ngIf="byMonth">
+
+    <tr class="c-row">
+      <th class="c-row__header">
+        Months
+      </th>
+      <th class="c-row__header">
+        CPMU
+      </th>
+    </tr>
+
+    <tr class="c-row" *ngFor="let CPMU of CPMUMonths">
+      <td class="c-row__item">
+        {{ CPMU.Month }}
+      </td>
+      <td class="c-row__item">
+        {{ CPMU.CPMU }}
+      </td>
+    </tr>
+
+  </table>
+
+  <table class="c-table" *ngIf="!byMonth">
+
+    <tr class="c-row">
+      <th class="c-row__header-sm">
+        Year
+      </th>
+      <th class="c-row__header-sm">
+        Quarter
+      </th>
+      <th class="c-row__header-sm">
+        CPMU
+      </th>
+    </tr>
+
+    <tr class="c-row" *ngFor="let CPMU of CMPUQuarter">
+      <td class="c-row__item-sm">
+        {{ CPMU.Year }}
+      </td>
+      <td class="c-row__item-sm">
+        {{ CPMU.Quarter }}
+      </td>
+      <td class="c-row__item-sm">
+        {{ CPMU.CPMU }}
+      </td>
+    </tr>
+
+  </table>
+</div>
