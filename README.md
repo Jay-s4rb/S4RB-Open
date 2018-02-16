@@ -1,61 +1,22 @@
-# Interview Questions #
+# S4RBOpen
 
-Imagine you have been tasked by the Account Manager to create a basic reporting application that will allow the account manager to view complaints via a online portal.
-The company already has a public JSON REST API that stores all the complaints that the business has recieved and the number of corresponding sales in that period.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.8.
 
-The back-end server that provides the public API can be hosted locally using the following commands:
+To start `npm install` or `yarn`
+## Development server
 
-```shell
-$ npm install -g json-server
+Run `npm run start` or `yarn start` to start the angular 2 app and json server DB
 
-$ json-server --watch db.json
-```
+## Build
 
-## 1. Develop a basic reporting portal using any suitable frameworks, such as Angular or React
+Run `npm run build` or `yarn build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
-![Example Reporting Portal](/example-2.png "Example Reporting Portal")
+## Running unit tests
 
-## 2. Add a view that shows the months and the calculated value CPMU
+Run `npm run test` or `yarn test` to execute the unit tests
 
-CPMU = Complaints per million units.
-
-For example:
-
-|Month       | CPMU|
-|---------- | ----------|
-|January 2012|	5.47|
-|February 2012|	57.66|
-|March 2012|	12.13|
-|May 2012|	67.78|
-|June 2012|	93.68|
-
-## 3. Allow the ability for the user to toggle Quarter and Month aggregation
-
-For example:
-
-| Year |Quarter       | CPMU|
-|---------- |---------- | ----------|
-| 2012 |1|	7.19|
-| 2012 |2|	82.69|
-
-
-## 4. Within the report there are missing months when data are not available, these values should be displayed as "No Value"
-
-For example:
-
-|Month       | CPMU
-|---------- | ----------|
-|February 2012|	57.66|
-|March 2012|	12.13|
-|April 2012|	No Value |
-|June 2012|	93.68|
-|July 2012|	57.30|
-
-## 5. Add any tests you see fit to cover your code and any key manipulations you have performed
-
-# The Test #
-Hopefully, completing the test itself shouldn’t be too difficult, but to help:
-- The file `interview.xlsx` has been provided by the project manager as an example of correct calculations.
-- We are looking for how you approach the project, the tests you put in place, the structure of your code etc.
-- You should approach this as if it were part of much bigger interconnected project.
-- The project manager is concious of the development budget, so your solution should be economical without compromising quality; there are no prizes for finishing quickly.
+## Tech used
+ - Angular(5)
+ - Angular CLI
+ - Karma
+ - json-server

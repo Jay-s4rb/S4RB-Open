@@ -1,0 +1,10 @@
+.c-header {
+  width:100%;
+  background-color: #3f51b5;
+}
+
+.c-header--logo {
+  color:#e4e4e4;
+  font-weight: bold;
+  padding: 20px 10px;
+}
