@@ -1,60 +1,27 @@
-# Interview Questions #
+# S4rbTest
 
-Imagine you have been tasked by the Account Manager to create a basic reporting application that will allow the account manager to view complaints via a online portal.
-The company already has an internal json rest api that stores all the complaints that the business has recieved and the number of corresponding sales in that period.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.0.
 
-The internal json rest api can be hosted locally using the following commands:
+## Development server
 
-```shell
-$ npm install -g json-server
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-$ json-server --watch db.json
-```
+## Code scaffolding
 
-## 1. Develop a basic reporting portal using any frameworks you see fit for purpose.
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-![Example Reporting Porta](/example-2.png "Example Reporting Portal")
+## Build
 
-## 2. Allow the ability for the user to toggle Quarter and Month consolidation.
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
-For example:
+## Running unit tests
 
-|Month       | CPMU|
-|---------- | ----------| 
-|01 January 2012|	5.47388874|
-|01 February 2012|	57.65682657|
-|01 March 2012|	12.12591551|
-|01 May 2012|	67.77995238|
-|01 June 2012|	93.67857009|
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-Should be displayed as:
+## Running end-to-end tests
 
-|Quarter       | CPMU|
-|---------- | ----------|
-|1|	7.186971458|
-|2|	82.6888992|
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
+## Further help
 
-## 3. Within the report there are missing months when data are not available, these days should be displayed as 0.
-
-For example:
-
-Month       | Amounts
----------- | ----------|
-|01 February 2012|	57.65682657|
-|01 March 2012|	12.12591551|
-|01 May 2012|	67.77995238|
-|01 June 2012|	93.67857009|
-
-Should be displayed as:
-
-|Month       | Amounts
-|---------- | ----------|
-|01 February 2012|	57.65682657|
-|01 March 2012|	12.12591551|
-|01 April 2012|	0.00000|
-|01 June 2012|	93.67857009|
-|01 July 2012|	57.29516406|
-
-# The Test #
-Hopefully, completing the test itself shouldn’t be too difficult to complete, but what we are looking for here is you approach the project, the tests put in place, the structure of the code etc… You should approach this as if it were part of much bigger interconnected project. There are no prizes for finishing quickly.
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
