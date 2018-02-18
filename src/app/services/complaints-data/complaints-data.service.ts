@@ -1,17 +1,15 @@
 import { Injectable } from '@angular/core';
-import { Product } from './../../model/product';
+import { Month } from './../../model/month';
 import { JsonService } from './../jsonApi/json.service';
 import { Observable } from 'rxjs/Observable';
-import "rxjs/add/operator/map";
 
 @Injectable()
 export class ComplaintsDataService {
 
   constructor(private api: JsonService) { }
 
-  getAllProducts(): Observable<Product[]> {
+  getAllProducts(): Observable<Month[]> {
     return this.api.getAllCPMU();
   }
-
 
 }

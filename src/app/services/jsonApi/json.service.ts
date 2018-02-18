@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import "rxjs/add/operator/map";
-import 'rxjs/add/operator/catch'
-import { of } from 'rxjs/observable/of';
+import 'rxjs/add/operator/catch';
 import { environment } from './../../../environments/environment';
 import { Http } from '@angular/http';
-
-import { Product } from './../../model/product';
+import { handleError } from './../../util/functions';
+import { Month } from './../../model/month';
 
 const API_URL = environment.apiUrl;
 
@@ -18,19 +17,13 @@ export class JsonService {
 
 
 //API: Get all product CMPU listings
-  getAllCPMU(): Observable<Product[]> {
+  getAllCPMU(): Observable<Month[]> {
       return this.http
       .get(API_URL + '/CPMU')
       .map (response => {
-        const prods = response.json();
-        return prods.map((prod) => new Product(prod));
+        const entries = response.json();
+        return entries.map((entry) => new Month(entry));
       })
-      .catch(this.handleError);
+      .catch(handleError);
     }
-
-  private handleError (error: Response | any) {
-  console.error('JsonService::handleError', error);
-  return Observable.throw(error);
-}
-
 }

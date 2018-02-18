@@ -1,6 +1,41 @@
-<ul>
-  <li *ngFor="let product of productList">
-    <div>{{product.Date | dateFormat}}</div>
-    <div>{{product.CPMU | number:'1.2-8'}}</div>
+<ul *ngIf="!showQuarters">
+  <li>
+    <div>
+      <p>Date</p>
+    </div>
+    <div class="product__cpmu">
+      <p>CPMU</p>
+    </div>
   </li>
+<ng-container *ngFor="let year of Year">
+  <li *ngFor="let month of year.Months">
+    <div class="product__date">{{month.Date | dateFormat}}</div>
+    <div class="product__cpmu">{{month.CPMU | number:'1.8'}}</div>
+  </li>
+</ng-container>
 </ul>
+<ul *ngIf="showQuarters">
+  <li>
+    <div>
+      <p>Year</p>
+    </div>
+    <div>
+      <p>Quarter</p>
+    </div>
+    <div class="product__cpmu">
+      <p>CPMU</p>
+    </div>
+  </li>
+<ng-container *ngFor="let year of Year">
+  <li *ngFor="let quarter of year.Quarters; let i = index">
+    <div class="product__year"><span *ngIf="i == 0">{{year.Year}}</span></div>
+    <div class="product__date">{{quarter.Quarter}}</div>
+    <div class="product__cpmu">{{quarter.CPMU | number:'1.8'}}</div>
+  </li>
+</ng-container>
+</ul>
+<button type="button" name="monthQuarterSwitch"
+ class="monthQuarterSwitch" (click)="toggleView()">
+  <p *ngIf="showQuarters">Sort By Months</p>
+  <p *ngIf="!showQuarters">Sort By Quarter</p>
+</button>
