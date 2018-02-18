@@ -1,6 +1,6 @@
 <ul>
   <li *ngFor="let product of productList">
-    <div>{{product.Month}}</div>
-    <div></div>
+    <div>{{product.Date | dateFormat}}</div>
+    <div>{{product.CPMU | number:'1.2-8'}}</div>
   </li>
 </ul>

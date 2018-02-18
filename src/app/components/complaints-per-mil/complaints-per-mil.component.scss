@@ -1,5 +1,10 @@
 ul {
   li {
     list-style-type: none;
+    display: flex;
+
+    & div {
+      flex: 1 0 auto;
+    }
   }
 }

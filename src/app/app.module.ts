@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { JsonService } from './services/jsonApi/json.service';
 import { ComplaintsPerMilComponent } from './components/complaints-per-mil/complaints-per-mil.component';
 import { ComplaintsDataService } from './services/complaints-data/complaints-data.service';
+import { DateFormatPipe } from './pipes/dateFormat.pipe';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ComplaintsPerMilComponent
+    ComplaintsPerMilComponent,
+    DateFormatPipe
   ],
   imports: [
     BrowserModule,
