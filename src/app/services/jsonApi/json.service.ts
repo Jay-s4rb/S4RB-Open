@@ -9,12 +9,12 @@ import { Month } from './../../model/month';
 
 const API_URL = environment.apiUrl;
 
+
+//Mimic JSON API - Only GET due to scope of test
 @Injectable()
 export class JsonService {
 
-  constructor(private http: Http) { }
-
-
+  constructor(private http?: Http) {}
 
 //API: Get all product CMPU listings
   getAllCPMU(): Observable<Month[]> {

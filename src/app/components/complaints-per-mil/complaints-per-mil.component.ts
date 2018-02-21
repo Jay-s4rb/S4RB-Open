@@ -14,7 +14,7 @@ export class ComplaintsPerMilComponent implements OnInit, OnDestroy {
 
   constructor(private complaintData : ComplaintsDataService) { }
 
-  private Year: Year[] = [];
+  private Years: Year[] = [];
   private showQuarters: boolean = false;
   private ngUnsubscribe: Subject<void> = new Subject<void>();
 
@@ -24,18 +24,17 @@ export class ComplaintsPerMilComponent implements OnInit, OnDestroy {
     .subscribe( (data) => {
       data.map((month) => {
         let thisYear = new Date(month.Date).getFullYear();
-        let YearIdx: number =  this.Year.findIndex(Year => Year.Year == thisYear);
+        let YearIdx: number =  this.Years.findIndex(Year => Year.Year == thisYear);
         if(YearIdx < 0){
-          let newYear: Year = new Year();
-          newYear.Year = thisYear;
-          this.Year.push(newYear);
-          YearIdx = this.Year.findIndex(Year => Year == newYear);
+          let newYear: Year = new Year(thisYear);
+          newYear.fillMonthArray();
+          this.Years.push(newYear);
+          YearIdx = this.Years.findIndex(Year => Year == newYear);
         }
-        this.Year[YearIdx].addMonth(month);
-        this.Year[YearIdx].Quarters[month.Quarter-1].addMonthToQuarter(month, month.Quarter);
+        this.Years[YearIdx].addMonth(month);
+        this.Years[YearIdx].Quarters[month.Quarter-1].addMonthToQuarter(month, month.Quarter);
       });
     });
-
   }
 
   toggleView(): void{

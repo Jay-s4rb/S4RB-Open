@@ -7,7 +7,7 @@
       <p>CPMU</p>
     </div>
   </li>
-<ng-container *ngFor="let year of Year">
+<ng-container *ngFor="let year of Years">
   <li *ngFor="let month of year.Months">
     <div class="product__date">{{month.Date | dateFormat}}</div>
     <div class="product__cpmu">{{month.CPMU | number:'1.8'}}</div>
@@ -26,7 +26,7 @@
       <p>CPMU</p>
     </div>
   </li>
-<ng-container *ngFor="let year of Year">
+<ng-container *ngFor="let year of Years">
   <li *ngFor="let quarter of year.Quarters; let i = index">
     <div class="product__year"><span *ngIf="i == 0">{{year.Year}}</span></div>
     <div class="product__date">{{quarter.Quarter}}</div>

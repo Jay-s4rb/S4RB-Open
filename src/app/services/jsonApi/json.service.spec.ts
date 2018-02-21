@@ -1,7 +1,7 @@
 import { TestBed, inject } from '@angular/core/testing';
 import { JsonService } from './json.service';
 
-describe('JsonServiceService', () => {
+describe('Json Service', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [JsonService]

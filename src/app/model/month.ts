@@ -8,11 +8,22 @@ export class Month {
   UnitsSold: number = 0;
   CPMU: number = 0;
 
-  constructor(mon: any){
-    this.Quarter = mon.Quarter;
-    this.Complaints = mon.Complaints;
-    this.Date = mon.Month;
-    this.UnitsSold = mon.UnitsSold;
-    this.CPMU = calcCPMU(mon.Complaints, mon.UnitsSold);
+
+  constructor();
+  constructor(mon: Month);
+  constructor(mon?: any){
+    if(mon){
+      this.Quarter = mon.Quarter;
+      this.Complaints = mon.Complaints;
+      this.Date = mon.Month;
+      this.UnitsSold = mon.UnitsSold;
+      this.CPMU = calcCPMU(mon.Complaints, mon.UnitsSold);
+    }
   }
+
+  setDateAndQuarter(date: Date, quarter: number){
+    this.Date = date;
+    this.Quarter = quarter;
+  }
+
 }

@@ -1,5 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { async, ComponentFixture, TestBed, inject } from '@angular/core/testing';
+import { DateFormatPipe } from './../../pipes/dateFormat.pipe';
+import { ComplaintsDataService } from './../../services/complaints-data/complaints-data.service';
 import { ComplaintsPerMilComponent } from './complaints-per-mil.component';
 
 describe('ComplaintsPerMilComponent', () => {
@@ -8,7 +9,9 @@ describe('ComplaintsPerMilComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ComplaintsPerMilComponent ]
+      declarations: [
+        ComplaintsPerMilComponent
+      ]
     })
     .compileComponents();
   }));
