@@ -1,6 +1,14 @@
-# S4rbTest
+# S4RB Test
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.0.
+
+I attempted to write some tests with Karma and Jasmine. I need to go and learn it more and rewrite them.
+
+Run the following to start the json-server on http://localhost:3000/
+
+```
+json-server --watch db.json
+```
 
 ## Development server
 
