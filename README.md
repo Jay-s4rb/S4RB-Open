@@ -3,6 +3,8 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.0.
 
 I attempted to write some tests with Karma and Jasmine. I need to go and learn it more and rewrite them.
+If there is anything I can improve in general and any tips for testing, please message me:
+davidvz898@gmail.com
 
 Run the following to start the json-server on http://localhost:3000/
 
