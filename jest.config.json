@@ -1,0 +1,30 @@
+{
+  "verbose": true,
+  "testPathIgnorePatterns": [
+    "/node_modules/",
+    "/.cache/"
+  ],
+  "transform": {
+    "^.+\\.test\\.js?$": "babel-jest"
+  },
+  "moduleFileExtensions": [
+    "js",
+    "json",
+    "css"
+  ],
+  "moduleDirectories": [
+    "node_modules"
+  ],
+  "moduleNameMapper": {
+    "^react$": "preact-compat",
+    "^react-dom$": "preact-compat",
+    "\\.css$": "identity-obj-proxy"
+  },
+  "collectCoverageFrom": [
+    "src/**/*.js"
+  ],
+  "coverageDirectory": "./build/coverage",
+  "snapshotSerializers": [
+    "preact-render-spy/snapshot"
+  ]
+}
