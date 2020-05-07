@@ -25,9 +25,9 @@ class Portal extends Component {
     .then(data => {
         this.setState({
           data
-        });
-
-        this.rebuildData();
+        }, () => {
+	  this.rebuildData();
+	});
     });
   }
 
